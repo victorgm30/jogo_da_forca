@@ -1,11 +1,11 @@
-def imprimir_palavra_secr(palavra, acertos):
+def imprimir_palavra_secr(palavra_sorteada, acertos):
     adivinha = ""
-    for letra in palavra:
+    for letra in palavra_sorteada:
         if letra in acertos:
             adivinha += letra
         else:
             adivinha += '\u2588'
-    print(f'ADIVINHE ({len(palavra)} letras): ')
+    print(f'ADIVINHE ({len(palavra_sorteada)} letras): ')
     for letra in adivinha:
         print(f'{letra} ', end='')
     print()
