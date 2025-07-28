@@ -25,13 +25,13 @@ def desenhar_forca(erros):
 
     linha2 = ""
     if erros == 2:
-        linha2 = "  |  "
+        linha2 = "  | "
         score = 600
     elif erros == 3:
-        linha2 = " /|  "
+        linha2 = " /| "
         score = 400
     elif erros >= 4:
-        linha2 = " /|\  "
+        linha2 = r" /|\ "
         score = 200
     print(f'X{linha2}')
 
@@ -40,8 +40,10 @@ def desenhar_forca(erros):
         linha3 += " / "
         score = 100
     elif erros >= 6:
-        linha3 += " / \ "
+        linha3 += r" / \ "
         score = 0
     print(f'X{linha3}')
 
     print(f'X\n=======')
+
+    return score

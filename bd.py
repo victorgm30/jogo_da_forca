@@ -11,7 +11,7 @@ def desconectar(conn):
 def criar_tabela(conn):
     cursor = conn.cursor()
     cursor.execute("""
-    CREATE TABLE IF NOT EXITS score_jogo (
+    CREATE TABLE IF NOT EXISTS score_jogo (
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
         valor_score INTEGER NOT NULL
@@ -30,13 +30,12 @@ def inserir_dado(nome, valor):
     desconectar(conn)
 
 def listar_dados():
-    com = conectar()
-    cursor = com.cursor()
+    conn = conectar()
+    cursor = conn.cursor()
     cursor.execute("""
         SELECT * FROM score_jogo
         ORDER BY valor_score DESC
     """)
     dados = cursor.fetchall()
-    com.commit()
-    desconectar(com)
+    desconectar(conn)
     return dados
